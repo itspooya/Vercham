@@ -27,4 +27,4 @@ def get_frequency():
 
 
 
-app.run("0.0.0.0", debug=True)
+app.run("0.0.0.0", debug=True,threaded=True)
