@@ -1,0 +1,15 @@
+[Unit]
+# Human readable name of the unit
+Description=Vercham Service
+
+[Service]
+# Command to execute when the service is started
+ExecStart=/usr/bin/python3.8 /usr/local/lib/vercham_service/api.py
+Environment=PYTHONUNBUFFERED=1
+# Also we want to restart it on failure
+Restart=on-failure
+User=vercham_service
+
+[Install]
+# default.target is a good choice for user services
+WantedBy=default.target
