@@ -14,12 +14,12 @@ def get_frequency():
         if "text" in content:
             string = content["text"]
             if "sort" in content:
-                besorted = content["sort"]
+                to_sort = content["sort"]
             else:
-                besorted = 0
+                to_sort = 0
         else:
             return jsonify(message="Please supply a json with text as key and text to be analyzed as value"),400
-        result = word_counter(string,besorted)
+        result = word_counter(string,to_sort)
         return jsonify(result),200
 
     else:
