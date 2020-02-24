@@ -6,9 +6,9 @@ Description=Vercham Service
 # Command to execute when the service is started
 ExecStart=/usr/bin/python3.8 /usr/local/lib/vercham_service/api.py
 Environment=PYTHONUNBUFFERED=1
-# Also we want to restart it on failure
-Restart=on-failure
-User=vercham_service
+# Also we want to restart it on failure or exit code 0
+Restart=always
+
 
 [Install]
 # default.target is a good choice for user services
