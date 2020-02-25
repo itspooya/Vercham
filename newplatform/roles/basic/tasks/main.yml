@@ -1,0 +1,41 @@
+- name: "Installing GIT"
+  apt: pkg=git state=present
+
+- name: "Installing Python3.8"
+  apt: pkg=python3.8-dev state=present
+
+- name: "Install pip3"
+  apt: pkg=python3-pip state=present
+
+- name: "Git Clone Package"
+  git:
+      repo: https://github.com/itspooya/Vercham.git
+      version: master
+      dest: /usr/local/lib/vercham_service
+
+- name: "Installing requirements"
+  command: python3.8 -m pip install -r /usr/local/lib/vercham_service/requirements.txt
+    
+- name: "Move service to systemd place"
+  command: mv /usr/local/lib/vercham_service/vercham_service.service /etc/systemd/system
+
+- name: "Change ownership of service file"
+  file:
+    path: /etc/systemd/system/vercham_service.service
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: "Enable service SystemD"
+  systemd:
+    name: vercham_service
+    enabled: yes
+
+- name: "Start service SystemD"
+  systemd:
+    name: vercham_service
+    state: started
+    
+    
+
+
