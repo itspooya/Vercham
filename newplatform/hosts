@@ -1,0 +1,2 @@
+[vm1]
+vm1 ansible_user=vm1
