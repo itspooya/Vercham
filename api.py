@@ -19,8 +19,11 @@ def get_frequency():
                 to_sort = 0
         else:
             return jsonify(message="Please supply a json with text as key and text to be analyzed as value"),400
+        client_ip = request.environ.get("HTTP_X_FORWARDED_FOR")
+        loadbalancer_ip = request.environ.get("REMOTE_ADDR")
+        worker_ip = request.environ.get("HTTP_HOST")
         result = word_counter(string,to_sort)
-        return jsonify(result),200
+        return jsonify(result,{"Client_IP":client_ip,"Loadbalancer_IP":loadbalancer_ip,"Worker_IP":worker_ip}),200
 
     else:
         return jsonify(message="Please Send Your request in json"),400
