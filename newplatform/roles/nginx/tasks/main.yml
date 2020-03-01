@@ -1,0 +1,22 @@
+- name: "Update and Upgrade Packages"
+  become: true
+  apt:
+    upgrade: yes
+    update_cache: yes
+    cache_valid_time: 86400
+
+- name: "Installing nginx"
+  become: true
+  apt: pkg=nginx state=present
+
+- name: "Copy nginx conf"
+  become: true
+  copy:
+    src: nginx.conf
+    dest: "/etc/nginx/nginx.conf"
+
+- name: "Enable and start nginx process"
+  service:
+    name: nginx
+    state: started
+    enabled: yes

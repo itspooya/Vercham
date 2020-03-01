@@ -1,2 +1,5 @@
 [vm1]
-vm1 ansible_user=vm1
+192.168.56.104 ansible_user=vm1
+
+[vm2]
+192.168.56.105 ansible_user=vm2

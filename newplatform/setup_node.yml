@@ -1,0 +1,6 @@
+- name: Setup nodes
+  hosts: vm1
+  become: true
+  roles:
+  - basic
+  

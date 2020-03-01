@@ -1,0 +1,9 @@
+- name: "Update Nginx conf"
+  lineinfile:
+    dest: /etc/nginx/nginx.conf
+    regexp: '^\s*server node[0-9];'
+    firstmatch: yes
+    line: "server {{ servername }}"
+
+- name: restart nginx
+  service: name=nginx state=restarted

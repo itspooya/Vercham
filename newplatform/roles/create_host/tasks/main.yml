@@ -1,0 +1,6 @@
+- name: Add IP address of node
+  lineinfile:
+    dest: /etc/hosts
+    regexp: '.*{{ hostname }}$'
+    line: "{{ hostip }} {{ hostname }}"
+    state: present
