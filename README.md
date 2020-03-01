@@ -28,8 +28,6 @@
 
 > این مستندات به مرور با پیشرفت پروژه تکمیل تر میشود.
 
-</div>
-
 ## آموزش نصب:
 
 <div dir="rtl" align="right">
@@ -39,3 +37,5 @@
 [آموزش نصب](https://github.com/itspooya/Vercham/wiki/Install "آموزش نصب")
 
  [ویکی](https://github.com/itspooya/Vercham/wiki/ "ویکی")
+ 
+ </div>
