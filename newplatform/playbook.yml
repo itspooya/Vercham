@@ -1,5 +1,0 @@
-- name: Setup Project
-  hosts: all
-  become: true
-  roles:
-  - basic

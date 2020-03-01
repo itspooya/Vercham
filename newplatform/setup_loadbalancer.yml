@@ -1,0 +1,10 @@
+- name: Setup loadbalancer
+  hosts: vm2
+  become: true
+  vars: 
+    server_name : 
+    - {ip: 192.168.70.102}
+  roles:
+  - update_nginx
+  
+ 
