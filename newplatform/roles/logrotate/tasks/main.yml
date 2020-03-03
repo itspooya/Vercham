@@ -1,0 +1,11 @@
+- name: "Install Logrotate"
+  become: true
+  apt:
+    name: logrotate
+    state: present
+    update_cache: yes
+
+- name: "Config Logrotate"
+    copy:
+      src: nginx
+      dest: /etc/logrotate.d/nginx
