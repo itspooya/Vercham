@@ -20,3 +20,15 @@
     name: nginx
     state: started
     enabled: yes
+
+- name: "Edit Journal Maxsize"
+  lineinfile:
+    dest: "/etc/systemd/journald.conf"
+    regexp: "^\s*#SystemMaxUse="
+    line: "#SystemMaxUse=250M"
+
+- name: "Edit Journal MaxfileSize"
+  lineinfile:
+    dest: "/etc/systemd/journald.conf"
+    regexp: "^\s*#SystemMaxFileSize="
+    line: "#SystemMaxFileSize=50M"
